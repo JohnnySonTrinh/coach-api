@@ -1,0 +1,1 @@
+web: gunicorn coachAPI.wsgi:application --log-file -
