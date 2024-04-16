@@ -7,3 +7,4 @@ projectboard.txt
 *.__pycache__
 __pycache__
 */migrations
+env.py
