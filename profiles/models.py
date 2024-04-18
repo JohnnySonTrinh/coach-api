@@ -17,7 +17,7 @@ linkedin_validator = RegexValidator(
 
 class Profile(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True)
     github = models.URLField(
         max_length=255,
         blank=True,

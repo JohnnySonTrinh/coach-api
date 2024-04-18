@@ -16,8 +16,8 @@ class Review(models.Model):
     live website, image, created_at, updated_at.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    content = models.TextField(max_length=1000)
+    title = models.CharField(max_length=255, blank=False)
+    content = models.TextField(max_length=1000, blank=True)
     github_repo = models.URLField(
         blank=True,
         max_length=255,
