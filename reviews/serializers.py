@@ -39,5 +39,8 @@ class ReviewSerializer(serializers.ModelSerializer):
             'live_website',
             'image',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'profile_id',
+            'profile_image',
+            'is_owner',
         ]

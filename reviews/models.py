@@ -4,10 +4,11 @@ from django.core.validators import RegexValidator
 
 # Custom validator for GitHub URL
 github_validator = RegexValidator(
-    regex=r'^https?://github\.com/[a-zA-Z0-9-]+/?$',
+    regex=r'^https?://github\.com/[a-zA-Z0-9-]+(/[a-zA-Z0-9-]+)*/*$',
     message="Enter a valid GitHub repository URL.",
     code='invalid_github'
 )
+
 
 class Review(models.Model):
     """
