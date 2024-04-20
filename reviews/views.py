@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from coachAPI.permissions import IsOwnerOrReadOnly
 from .models import Review
 from .serializers import ReviewSerializer
@@ -19,6 +20,12 @@ class ReviewList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__following__followed__profile',
+        'likes__owner__profile',
+        'owner__profile',
     ]
     ordering_fields = [
         'likes_count',
