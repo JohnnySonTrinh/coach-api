@@ -102,9 +102,9 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000')
-]
+# CORS_ALLOWED_ORIGINS = [
+#    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000')
+#]
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -194,3 +194,5 @@ django_heroku.settings(locals())
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ALL_ORIGINS = True
