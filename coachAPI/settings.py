@@ -103,7 +103,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000')
+    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000', 'https://star-review-98e9a47a3402.herokuapp.com')
 ]
 
 CORS_ALLOW_CREDENTIALS = True
