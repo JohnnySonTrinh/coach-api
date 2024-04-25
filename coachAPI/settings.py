@@ -56,7 +56,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', 'https://coach-platform-api-b2a0c10b1c34.herokuapp.com/']
 
 
 # Application definition
@@ -103,7 +103,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000', 'https://star-review-98e9a47a3402.herokuapp.com')
+    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000')
 ]
 
 CORS_ALLOW_CREDENTIALS = True
