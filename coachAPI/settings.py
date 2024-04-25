@@ -56,7 +56,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'https://coach-platform-api-b2a0c10b1c34.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
