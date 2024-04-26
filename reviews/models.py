@@ -29,7 +29,8 @@ class Review(models.Model):
     )
     image = models.ImageField(
         upload_to='images/',
-        default='../default_post_xw5she'
+        default='../default_post_xw5she',
+        max_length=255,
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
