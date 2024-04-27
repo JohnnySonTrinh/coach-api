@@ -50,13 +50,13 @@ REST_AUTH_SERIALIZERS = {
 # Load the environment variables
 load_dotenv()
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
-
-ALLOWED_HOSTS = ['localhost', 'https://coach-platform-api-b2a0c10b1c34.herokuapp.com/']
+# 
+ALLOWED_HOSTS = ['localhost', 'https://coach-platform-api-b2a0c10b1c34.herokuapp.com']
 
 
 # Application definition
@@ -88,7 +88,7 @@ INSTALLED_APPS = [
     'newsletter',
 ]
 SITE_ID = 1
-
+#'allauth.account.middleware.AccountMiddleware',
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -99,13 +99,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
-
-# CORS_ALLOWED_ORIGINS = [
-#    os.environ.get('CLIENT_ORIGINS', 'http://localhost:3000')
-#]
-
+# CORS_ALLOWED_ALL_ORIGIN = True
+if 'CLIENT_ORIGIN' in os.environ:
+     CORS_ALLOWED_ORIGINS = [
+         os.environ.get('CLIENT_ORIGIN')
+     ]
+else:
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io(:\d+)?(/.*)?$",
+     ]
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'coachAPI.urls'
@@ -166,7 +169,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -194,5 +196,3 @@ django_heroku.settings(locals())
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CORS_ALLOWED_ALL_ORIGINS = True
